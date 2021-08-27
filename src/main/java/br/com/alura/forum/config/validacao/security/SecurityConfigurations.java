@@ -22,8 +22,10 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 //AUTORIZACAO
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers(HttpMethod.GET, "/topicos").permitAll()
-                .antMatchers(HttpMethod.GET, "/topicos/*").permitAll();
+        http.authorizeRequests()
+                .antMatchers(HttpMethod.GET, "/topicos").permitAll()
+                .antMatchers(HttpMethod.GET, "/topicos/*").permitAll()
+                .anyRequest().authenticated();
                 
     }
 
